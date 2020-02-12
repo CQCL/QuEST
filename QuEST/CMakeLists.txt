@@ -304,4 +304,8 @@ target_link_libraries(QuEST ${MPI_C_LIBRARIES})
 target_link_libraries(QuEST ${CUDA_LIBRARIES})
 
 
+install(TARGETS QuEST
+        RUNTIME DESTINATION bin
+        LIBRARY DESTINATION lib
+        ARCHIVE DESTINATION lib)
 
