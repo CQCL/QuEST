@@ -155,7 +155,7 @@ endif()
 
 # set C flags that are common between compilers and build types
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} \
-    -std=c99 -fPIC"
+    -std=c99"
 )
 
 # Use -O2 for all but debug mode by default 
@@ -267,11 +267,11 @@ endif()
 add_subdirectory(src)
 
 if (GPUACCELERATED)
-    cuda_add_library(QuEST STATIC
+    cuda_add_library(QuEST SHARED
         ${QuEST_SRC}
     )
 else ()
-    add_library(QuEST STATIC
+    add_library(QuEST SHARED
         ${QuEST_SRC}
     )
 endif()
@@ -304,8 +304,8 @@ target_link_libraries(QuEST ${MPI_C_LIBRARIES})
 target_link_libraries(QuEST ${CUDA_LIBRARIES})
 
 
-# install(TARGETS QuEST
-#         RUNTIME DESTINATION bin
-#         LIBRARY DESTINATION lib
-#         ARCHIVE DESTINATION lib)
+install(TARGETS QuEST
+        RUNTIME DESTINATION bin
+        LIBRARY DESTINATION lib
+        ARCHIVE DESTINATION lib)
 
