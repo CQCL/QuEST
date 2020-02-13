@@ -155,7 +155,7 @@ endif()
 
 # set C flags that are common between compilers and build types
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} \
-    -std=c99"
+    -std=c99 -fPIC"
 )
 
 # Use -O2 for all but debug mode by default 
