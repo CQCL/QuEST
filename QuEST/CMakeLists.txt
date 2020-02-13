@@ -267,11 +267,11 @@ endif()
 add_subdirectory(src)
 
 if (GPUACCELERATED)
-    cuda_add_library(QuEST SHARED
+    cuda_add_library(QuEST STATIC
         ${QuEST_SRC}
     )
 else ()
-    add_library(QuEST SHARED
+    add_library(QuEST STATIC
         ${QuEST_SRC}
     )
 endif()
@@ -304,8 +304,8 @@ target_link_libraries(QuEST ${MPI_C_LIBRARIES})
 target_link_libraries(QuEST ${CUDA_LIBRARIES})
 
 
-install(TARGETS QuEST
-        RUNTIME DESTINATION bin
-        LIBRARY DESTINATION lib
-        ARCHIVE DESTINATION lib)
+# install(TARGETS QuEST
+#         RUNTIME DESTINATION bin
+#         LIBRARY DESTINATION lib
+#         ARCHIVE DESTINATION lib)
 
